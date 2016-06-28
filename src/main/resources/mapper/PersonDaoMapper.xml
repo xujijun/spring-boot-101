@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjj.dao.PersonDAO">
+
+	<!-- 插入数据库用户表 -->
+	<insert id="insertPerson">
+		INSERT INTO t_person(first_name,last_name,birth_date,sex,phone_no,update_dt)
+		VALUES(#{firstName},#{lastName},#{birthDate},#{sex},#{phoneNo},NOW())
+	</insert>
+
+	<update id="updatePersonById">
+		UPDATE t_person SET 
+			first_name=#{firstName}, last_name=#{lastName}, birth_date=#{birthDate}, sex=#{sex}, phone_no=#{phoneNo}
+		WHERE id=#{id}
+	</update>
+	
+	<update id="updatePersonByPhoneNo">
+		UPDATE t_person SET 
+			first_name=#{firstName}, last_name=#{lastName}, birth_date=#{birthDate}, sex=#{sex}
+		WHERE phone_no=#{phoneNo}
+	</update>
+</mapper>

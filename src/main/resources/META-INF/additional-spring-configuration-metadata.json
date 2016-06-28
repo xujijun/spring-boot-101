@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "mysql.ip-port",
+  "type": "java.lang.String",
+  "description": "A description for 'mysql.ip-port'"
+}]}
