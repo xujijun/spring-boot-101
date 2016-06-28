@@ -64,10 +64,19 @@
 	</dependencies>
 	
 	<build>
+		<finalName>my-spring-boot</finalName> <!-- 指定package生成的文件名为my-spring-boot.jar -->
+		
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<dependencies>	<!-- 修改代码后自动生效，Reload Java classes without restarting the container -->
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.6.RELEASE</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
