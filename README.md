@@ -4,3 +4,4 @@
 - log4j2 configuration
 - mysql, mybatis configuration
 - RESTful API
+- Static page support
