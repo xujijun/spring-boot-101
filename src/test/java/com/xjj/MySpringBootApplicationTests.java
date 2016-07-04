@@ -25,6 +25,12 @@ public class MySpringBootApplicationTests {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	protected final ObjectMapper objectMapper = new ObjectMapper();
 	
+	//@LocalServerPort
+	//private int port;
+	
+	//@Autowired
+	//private TestRestTemplate template;
+	
 	@Autowired
 	PersonDAO personDAO;
 	

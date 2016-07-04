@@ -19,6 +19,7 @@
 	</parent>
 
 	<properties>
+		<start-class>com.xjj.MySpringBootApplication</start-class> <!-- 指定启动类（main方法的位置） -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 	</properties>

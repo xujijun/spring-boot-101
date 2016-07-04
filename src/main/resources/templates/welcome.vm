@@ -1,11 +1,14 @@
+<!DOCTYPE html>
 <html>
 <body>
-亲爱的${toUserName}，你好！
+<h4>亲爱的${toUserName}，你好！</h4>
 
-    ${message}
+<p style="color:blue;">&emsp;${message}</p>
 
 祝：开心！
+</br>
 ${fromUserName}
+</br>
 ${time}
 
 </body>
