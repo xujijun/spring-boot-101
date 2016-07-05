@@ -7,3 +7,4 @@
 - RESTful API
 - Different configuration profiles for different environments
 - Use velocity template
+- Mail
