@@ -6,5 +6,6 @@
 - mySql and myBatis configuration
 - RESTful API
 - Different configuration profiles for different environments
-- Use velocity template
+- Velocity template
+- FreeMarker template
 - Mail
