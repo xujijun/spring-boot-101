@@ -9,3 +9,4 @@
 - Velocity template
 - FreeMarker template
 - Mail
+- Scheduler
