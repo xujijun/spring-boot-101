@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.xjj.config.MyProps;
 import com.xjj.dao.PersonDAO;
 import com.xjj.entity.Person;
 import com.xjj.util.XDateUtils;
@@ -16,9 +17,18 @@ import com.xjj.util.XDateUtils;
 public class MySpringBootApplicationTests extends BasicUtClass{
 	@Autowired
 	private PersonDAO personDAO;
-
+	@Autowired
+	private MyProps myProps; 
+	
 	@Test
-	public void contextLoads() {
+	public void propsTest() throws JsonProcessingException {
+		System.out.println("simpleProp: " + myProps.getSimpleProp());
+		System.out.println("listProps1: " + objectMapper.writeValueAsString(myProps.getListProp1()));
+		System.out.println("listProps2: " + objectMapper.writeValueAsString(myProps.getListProp2()));
+	}
+	
+	@Test 
+	public void logTest(){
 		logger.trace("I am trace log.");
 		logger.debug("I am debug log.");
 		logger.warn("I am warn log.");

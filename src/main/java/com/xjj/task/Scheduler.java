@@ -12,19 +12,19 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Scheduler {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Scheduled(cron="0 0/1 * * * ?") //每分钟执行一次
 	public void statusCheck() {    
-		logger.info("每分钟执行一次。开始……");
+		//logger.info("每分钟执行一次。开始……");
 		//statusTask.healthCheck();
-		logger.info("每分钟执行一次。结束。");
+		//logger.info("每分钟执行一次。结束。");
 	}  
 
 	@Scheduled(fixedRate=20000)
 	public void testTasks() {    
-		logger.info("每20秒执行一次。开始……");
+		//logger.info("每20秒执行一次。开始……");
 		//statusTask.healthCheck();
-		logger.info("每20秒执行一次。结束。");
+		//logger.info("每20秒执行一次。结束。");
 	}  
 }

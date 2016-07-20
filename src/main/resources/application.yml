@@ -21,13 +21,23 @@ server:
   port: 8082
 
 
-
 ---
 # 开发环境配置
 spring:
   profiles: dev
 mysql:
   ipPort: localhost:3306
+
+myProps: #自定义的属性和值
+  simpleProp: simplePropValue
+  listProp1:
+    - name: abc
+      value: abcValue
+    - name: efg
+      value: efgValue
+  listProp2:
+    - config2Value1
+    - config2Vavlue2
   
 ---
 # 测试环境配置

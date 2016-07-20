@@ -65,6 +65,13 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- 支持 @ConfigurationProperties 注解 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
 	<!-- log related -->
 		<dependency> <!-- exclude掉spring-boot的默认log配置 -->
 			<groupId>org.springframework.boot</groupId>
