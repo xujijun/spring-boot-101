@@ -6,6 +6,7 @@
 - mySql and myBatis configuration
 - RESTful API
 - Different configuration profiles for different environments
+- Retrieve properties from application.yml
 - Velocity template
 - FreeMarker template
 - Mail
