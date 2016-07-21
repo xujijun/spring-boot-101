@@ -24,8 +24,9 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 	public void propsTest() throws JsonProcessingException {
 		System.out.println("simpleProp: " + myProps.getSimpleProp());
 		System.out.println("arrayProps: " + objectMapper.writeValueAsString(myProps.getArrayProps()));
-		System.out.println("listProps1: " + objectMapper.writeValueAsString(myProps.getListProp1()));
-		System.out.println("listProps2: " + objectMapper.writeValueAsString(myProps.getListProp2()));
+		System.out.println("listProp1: " + objectMapper.writeValueAsString(myProps.getListProp1()));
+		System.out.println("listProp2: " + objectMapper.writeValueAsString(myProps.getListProp2()));
+		System.out.println("mapProps: " + objectMapper.writeValueAsString(myProps.getMapProps()));
 	}
 	
 	@Test 

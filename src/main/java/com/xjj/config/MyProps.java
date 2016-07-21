@@ -1,6 +1,7 @@
 package com.xjj.config;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ public class MyProps {
 	private String[] arrayProps;
 	private List<Map<String, String>> listProp1 = new ArrayList<>(); //接收prop1里面的属性值
 	private List<String> listProp2 = new ArrayList<>(); //接收prop2里面的属性值
+	private Map<String, String> mapProps = new HashMap<>(); //接收prop1里面的属性值
 	
 	public String getSimpleProp() {
 		return simpleProp;
@@ -37,5 +39,13 @@ public class MyProps {
 
 	public void setArrayProps(String[] arrayProps) {
 		this.arrayProps = arrayProps;
+	}
+
+	public Map<String, String> getMapProps() {
+		return mapProps;
+	}
+
+	public void setMapProps(Map<String, String> mapProps) {
+		this.mapProps = mapProps;
 	}
 }

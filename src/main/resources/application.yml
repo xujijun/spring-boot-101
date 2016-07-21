@@ -39,6 +39,9 @@ myProps: #自定义的属性和值
   listProp2:
     - config2Value1
     - config2Vavlue2
+  mapProps:
+    key1: value1
+    key2: value2
   
 ---
 # 测试环境配置
