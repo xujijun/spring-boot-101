@@ -15,21 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.6.RELEASE</version>
-		<!-- <version>1.4.0.M3</version> -->
-		<!-- <relativePath/> --> <!-- lookup parent from repository -->
 	</parent>
-	
-	<!-- 因为1.4.0.M3还没正式发布，临时指定库的地址为spring.io -->
-	<!-- <repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/libs-milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories> -->
 
 	<properties>
 		<start-class>com.xjj.MySpringBootApplication</start-class> <!-- 指定启动类（main方法的位置） -->
@@ -40,8 +26,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

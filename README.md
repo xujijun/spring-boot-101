@@ -11,3 +11,5 @@
 - FreeMarker template
 - Mail
 - Scheduler
+- Actuator: service status monitor
+- AOP, intercepter
