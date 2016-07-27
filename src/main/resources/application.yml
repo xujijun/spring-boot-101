@@ -24,6 +24,12 @@ management:
   health:
     mail:
       enabled: false
+info:
+  app:
+    name: "@project.name@" #从pom.xml中获取
+    description: "@project.description@"
+    version: "@project.version@"
+    spring-boot-version: "@project.parent.version@"
       
 ---
 # 开发环境配置
