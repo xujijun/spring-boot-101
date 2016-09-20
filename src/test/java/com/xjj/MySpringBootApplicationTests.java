@@ -3,16 +3,13 @@ package com.xjj;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.velocity.app.VelocityEngine;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.velocity.VelocityEngineUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.xjj.config.MyProps;
 import com.xjj.dao.PersonDAO;
 import com.xjj.entity.Person;
-import com.xjj.util.XDateUtils;
 
 public class MySpringBootApplicationTests extends BasicUtClass{
 	@Autowired
@@ -58,7 +55,7 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		logger.info("person no 2 after update is: {}", objectMapper.writeValueAsString(person2));
 	}
 	
-	@Autowired
+/*	@Autowired
 	VelocityEngine velocityEngine;
 	
 	@Test
@@ -69,6 +66,6 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		model.put("toUserName", "张三");
 		model.put("fromUserName", "老许");
 		System.out.println(VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "welcome.vm", "UTF-8", model));
-	}
+	}*/
 
 }

@@ -4,14 +4,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.velocity.app.VelocityEngine;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
-import org.springframework.ui.velocity.VelocityEngineUtils;
 
 import com.xjj.service.MailService;
-import com.xjj.util.XDateUtils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -46,7 +43,7 @@ public class MailTests extends BasicUtClass{
 	}
 	 
 	
-	@Autowired
+/*	@Autowired
 	VelocityEngine velocityEngine;
 	
 	@Test
@@ -59,7 +56,7 @@ public class MailTests extends BasicUtClass{
 		String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "welcome.vm", "UTF-8", model);
 		
 		mailService.sendHtmlMail(to, "主题：html邮件", content);
-	}
+	}*/
 
 	@Test
 	public void sendAttachmentsMail() {
