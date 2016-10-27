@@ -1,5 +1,8 @@
 package com.xjj;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,6 +56,8 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		personDAO.updatePersonById(person2);
 		person2 = personDAO.getPersonById(2);
 		logger.info("person no 2 after update is: {}", objectMapper.writeValueAsString(person2));
+		assertThat(person2.getFirstName(), equalTo("八"));
+
 	}
 	
 /*	@Autowired
