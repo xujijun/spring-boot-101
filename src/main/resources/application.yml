@@ -48,6 +48,9 @@ spring:
   profiles: dev
   datasource:
     url: jdbc:mysql://localhost:3306/
+  data:
+    mongodb:
+      uri: mongodb://192.168.0.9:27017/test
 
 myProps: #自定义的属性和值
   simpleProp: simplePropValue
