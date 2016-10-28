@@ -16,6 +16,8 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.BasicDBObject;
@@ -111,6 +113,29 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 				logger.info("count by first name: {}", objectMapper.writeValueAsString(obj));
 			}
 		}	
+	}
+
+	@Autowired
+	RedisTemplate<String, String> redisTemplate;
+	
+	@Test
+	public void redisTest() {
+		String key = "redisTestKey";
+		String value = "I am test value";
+		
+		ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
+		
+		//数据插入测试：
+		opsForValue.set(key, value);
+		String valueFromRedis = opsForValue.get(key);
+		logger.info("redis value after set: {}", valueFromRedis);
+		assertThat(valueFromRedis, is(value));
+		
+		//数据删除测试：
+		redisTemplate.delete(key);
+		valueFromRedis = opsForValue.get(key);
+		logger.info("redis value after delete: {}", valueFromRedis);
+		assertThat(valueFromRedis, equalTo(null));
 	}
 	
 /*	@Autowired
