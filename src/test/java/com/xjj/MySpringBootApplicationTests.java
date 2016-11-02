@@ -24,6 +24,7 @@ import com.mongodb.BasicDBObject;
 import com.xjj.config.MyProps;
 import com.xjj.dao.PersonDAO;
 import com.xjj.entity.Person;
+import com.xjj.service.PersonService;
 
 public class MySpringBootApplicationTests extends BasicUtClass{
 	@Autowired
@@ -137,6 +138,32 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		logger.info("redis value after delete: {}", valueFromRedis);
 		assertThat(valueFromRedis, equalTo(null));
 	}
+	
+	@Autowired
+	PersonService personService;
+	
+	@Test
+	public void localCacheTest() throws JsonProcessingException, InterruptedException{
+		System.out.println("第一次："); //从数据库中获取
+		Person p = personService.getPersonById(2);
+		logger.info("1st time: {}", objectMapper.writeValueAsString(p));
+		
+		System.out.println("第二次："); //从缓存中获取
+		p = personService.getPersonById(2);
+		logger.info("2nd time: {}", objectMapper.writeValueAsString(p));
+		
+		Thread.sleep(5000);
+		
+		System.out.println("第三次："); //5秒钟超时后，从数据库中获取
+		p = personService.getPersonById(2);
+		logger.info("3rd time: {}", objectMapper.writeValueAsString(p));
+
+		System.out.println("第四次："); //从缓存中获取
+		p = personService.getPersonById(2);
+		logger.info("4th time: {}", objectMapper.writeValueAsString(p));
+
+	}
+	
 	
 /*	@Autowired
 	VelocityEngine velocityEngine;

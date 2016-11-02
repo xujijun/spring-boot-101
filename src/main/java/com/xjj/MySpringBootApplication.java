@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
+//@EnableCaching
 public class MySpringBootApplication implements HealthIndicator{
 	private static Logger logger = LoggerFactory.getLogger(MySpringBootApplication.class);
 	

@@ -4,7 +4,14 @@
 spring:
   profiles:
     active: dev
-
+#  cache:
+#    type: CAFFEINE #指定cache类型
+#    cache-names:
+#      - getPersonById
+#      - name2
+#    caffeine:
+#      spec: maximumSize=500,expireAfterWrite=5s
+      
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
