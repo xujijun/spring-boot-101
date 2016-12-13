@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class AsyncTask {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@Async
+	@Async("mySimpleAsync")
 	public Future<String> doTask1() throws InterruptedException{
 		logger.info("Task1 started.");
 		long start = System.currentTimeMillis();
@@ -29,7 +29,7 @@ public class AsyncTask {
         return new AsyncResult<>("Task1 accomplished!");
 	}
 	
-	@Async
+	@Async("myAsync")
 	public Future<String> doTask2() throws InterruptedException{
 		logger.info("Task2 started.");
 		long start = System.currentTimeMillis();
