@@ -14,5 +14,6 @@
 - FreeMarker template
 - Mail
 - Scheduler
+- @Async configuration
 - Actuator: service status monitor
 - AOP, intercepter
