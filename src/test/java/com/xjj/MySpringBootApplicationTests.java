@@ -57,6 +57,7 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		logger.debug("I am debug log.");
 		logger.warn("I am warn log.");
 		logger.error("I am error log.");
+		logger.info("I am info log.");
 	}
 
 	@Test
