@@ -12,6 +12,7 @@
 </#list>
 
 <#list mapMsg>
+map message list:
     <ul>
 		<#items as msg>
 		    <li>#{msg?index}: ${msg.title}, ${msg.content}</li>
@@ -19,11 +20,16 @@
 	</ul>
 </#list>
 
+<#include "subtpl.ftl">
+
 祝：开心！
 </br>
 ${fromUserName}
 </br>
 ${time?date}
+
+<br/>
+<#include "copyright.ftl">
 
 </body>
 </html>
