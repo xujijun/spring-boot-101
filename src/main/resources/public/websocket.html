@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>My WebSocket</title>
+
+	<script src="js/vue.js"></script>
+</head>
+<body>
+Welcome To My WebSocket.<br/><br/>
+	<div id="ws">
+	<input id="text" type="text"/>
+	<button onclick="sendMsg()">Send</button>
+	<button onclick="closeWS()" :disabled="!opened">Close</button>
+	<button onclick="openWS()"  :disabled="opened">Open</button>
+	<div v-html="msg"></div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	var websocket = null;
+
+	var wsVue = new Vue({
+		el: '#ws',
+		data: {
+			msg: "welcome to my websocket...<br/>",
+			opened: false
+		},
+		mounted: function(){
+			initWs();
+		}
+	});
+
+	function initWs() {
+		//check if your browser supports WebSocket
+		if ('WebSocket' in window) {
+			websocket = new WebSocket("ws://localhost:8082/my-websocket");
+		}
+		else {
+			alert('Sorry, websocket not supported by your browser.')
+		}
+
+		//Error callback
+		websocket.onerror = function () {
+			setMessageContent("error!");
+			wsVue.opened = false;
+		};
+
+		//socket opened callback
+		websocket.onopen = function (event) {
+			setMessageContent("websocket opened");
+			wsVue.opened = true;
+		}
+
+		//message received callback
+		websocket.onmessage = function (event) {
+			setMessageContent(event.data);
+		}
+
+		//socket closed callback
+		websocket.onclose = function () {
+			setMessageContent("websocket closed");
+			wsVue.opened = false;
+		}
+
+		//when browser window closed, close the socket, to prevent server exception
+		window.onbeforeunload = function () {
+			websocket.close();
+		}
+	}
+
+	//update message to vue and then in div
+	function setMessageContent(content) {
+		wsVue.msg += content  + '<br/>';
+	}
+
+	//click to close the websocket
+	function closeWS() {
+		websocket.close();
+		wsVue.opened = false;
+	}
+
+	//click to open the websocket
+	function openWS() {
+		initWs();
+	}
+
+	//click to send message
+	function sendMsg() {
+		var message = document.getElementById('text').value;
+		websocket.send(message);
+	}
+</script>
+</body>
+</html>

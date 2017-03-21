@@ -17,3 +17,4 @@
 - @Async configuration
 - Actuator: service status monitor
 - AOP, intercepter
+- websocket: server(java) and client(html with vue.js)
