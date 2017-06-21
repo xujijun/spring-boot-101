@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.logging.log4j.core.lookup.MainMapLookup;
+import org.apache.logging.log4j.core.lookup.MapLookup;
+import org.apache.logging.log4j.message.MapMessage;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -53,6 +56,7 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 	
 	@Test 
 	public void logTest(){
+		//MainMapLookup.setMainArguments("projectName", "test-project-name");
 		logger.trace("I am trace log.");
 		logger.debug("I am debug log.");
 		logger.warn("I am warn log.");

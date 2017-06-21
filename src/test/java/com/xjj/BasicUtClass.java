@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class BasicUtClass {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	protected final ObjectMapper objectMapper = new ObjectMapper();
