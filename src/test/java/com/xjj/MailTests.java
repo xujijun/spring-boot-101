@@ -1,17 +1,23 @@
 package com.xjj;
 
+import com.xjj.service.MailService;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.InputStreamSource;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
-
-import com.xjj.service.MailService;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
 
 public class MailTests extends BasicUtClass{
 	@Autowired
@@ -71,5 +77,48 @@ public class MailTests extends BasicUtClass{
 				"<html><body>这是有嵌入静态资源：<img src=\'cid:" + rscId + "\' ></body></html>",
 				"C:\\Users\\Xu\\Desktop\\csdn\\1.png",
 				rscId);
+	}
+
+
+	@Test
+	public void sendMailWithExcel() throws IOException {
+		String[] headers = {"col1","col2","col3"};
+		// 声明一个工作薄
+		HSSFWorkbook wb = new HSSFWorkbook();
+		// 生成一个表格
+		HSSFSheet sheet = wb.createSheet();
+		HSSFRow row = sheet.createRow(0);
+		for (int i = 0; i < headers.length; i++) {
+			HSSFCell cell = row.createCell(i);
+			cell.setCellValue(headers[i]);
+		}
+		int rowIndex = 1;
+
+		for(int j=0; j<3; j++){
+			row = sheet.createRow(rowIndex);
+			rowIndex++;
+			HSSFCell cell1 = row.createCell(0);
+			cell1.setCellValue(j);
+			cell1 = row.createCell(1);
+			cell1.setCellValue(j+1);
+			cell1 = row.createCell(2);
+			cell1.setCellValue(j+2);
+		}
+		for (int i = 0; i < headers.length; i++) {
+			sheet.autoSizeColumn(i);
+		}
+
+		ByteArrayOutputStream os = new ByteArrayOutputStream(1000);
+		wb.write(os);
+		wb.close();
+
+		InputStreamSource iss = new ByteArrayResource(os.toByteArray());
+		os.close();
+
+		mailService.sendAttachmentsMail("xjj@qq.com",
+				"attachmentMail subject",
+				"I have an attachment",
+				iss, "abc1.xlsx");
+
 	}
 }
