@@ -1,15 +1,15 @@
 package com.xjj.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
 @Component
-@ConfigurationProperties(prefix="myProps") //接收application.yml中的myProps下面的属性
+@ConfigurationProperties(prefix="my-props") //接收application.yml中的myProps下面的属性
 public class MyProps {
 	private String simpleProp;
 	private String[] arrayProps;

@@ -1,17 +1,12 @@
 package com.xjj;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.logging.log4j.core.lookup.MainMapLookup;
-import org.apache.logging.log4j.core.lookup.MapLookup;
-import org.apache.logging.log4j.message.MapMessage;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.mongodb.BasicDBObject;
+import com.mongodb.client.MongoIterable;
+import com.xjj.config.MyProps;
+import com.xjj.dao.PersonDAO;
+import com.xjj.entity.Person;
+import com.xjj.service.PersonService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -22,12 +17,11 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.mongodb.BasicDBObject;
-import com.xjj.config.MyProps;
-import com.xjj.dao.PersonDAO;
-import com.xjj.entity.Person;
-import com.xjj.service.PersonService;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 public class MySpringBootApplicationTests extends BasicUtClass{
 	@Autowired
@@ -69,11 +63,11 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		Person person2 = personDAO.getPersonById(2);
 		logger.info("person no 2 is: {}", objectMapper.writeValueAsString(person2));
 		
-		person2.setFirstName("八");
+		person2.setFirstName("八八");
 		personDAO.updatePersonById(person2);
 		person2 = personDAO.getPersonById(2);
 		logger.info("person no 2 after update is: {}", objectMapper.writeValueAsString(person2));
-		assertThat(person2.getFirstName(), equalTo("八"));
+		assertThat(person2.getFirstName(), equalTo("八八"));
 
 	}
 
@@ -98,9 +92,9 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		Person gotP = mongoTemplate.findOne(Query.query(c), Person.class);
 		logger.debug("p={}", objectMapper.writeValueAsString(gotP));
 		assertThat(gotP.getFirstName(), equalTo("七"));
-		
-		Set<String> collectionNames = mongoTemplate.getDb().getCollectionNames();
-		logger.info("colection names: {}", collectionNames);
+
+		MongoIterable<String> collectionNames = mongoTemplate.getDb().listCollectionNames();
+		logger.info("collection names: {}", collectionNames);
 		assertThat(collectionNames, hasItem("person"));
 	}
 	

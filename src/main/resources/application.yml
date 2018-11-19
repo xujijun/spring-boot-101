@@ -13,7 +13,7 @@ spring:
 #      spec: maximumSize=500,expireAfterWrite=5s
       
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
     hikari:
@@ -24,13 +24,13 @@ spring:
     host: smtp.exmail.qq.com
     username: service@mail.cn
     password: myPassword
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#            required: true
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
@@ -38,10 +38,11 @@ mybatis:
 server:
   port: 8082
 management:
-  port: 54001
-  health:
-    mail:
-      enabled: false
+  server:
+    port: 54001
+#  health:
+#    mail:
+#      enabled: false
 info:
   app:
     name: "@project.name@" #从pom.xml中获取
@@ -56,19 +57,19 @@ spring:
   redis:
     cluster:
       nodes:
-        - 192.168.0.17:6390
-        - 192.168.0.17:6391
-        - 192.168.0.17:6392
+        - 192.168.0.11:6390
+        - 192.168.0.11:6391
+        - 192.168.0.11:6392
         - 192.168.0.9:6390
         - 192.168.0.9:6391
         - 192.168.0.9:6392
   datasource:
-    url: jdbc:mysql://localhost:3306/
+    url: jdbc:mysql://localhost:3306/?serverTimezone=GMT%2B8
   data:
     mongodb:
-      uri: mongodb://192.168.0.9:27017/test
+      uri: mongodb://192.168.0.9,192.168.0.18/test?replicaSet=devRs
 
-myProps: #自定义的属性和值
+my-props: #自定义的属性和值
   simpleProp: simplePropValue
   arrayProps: 1,2,3,4,5
   listProp1:
@@ -88,11 +89,11 @@ myProps: #自定义的属性和值
 spring:
   profiles: test
   datasource:
-    url: jdbc:mysql://192.168.0.12:3306/
+    url: jdbc:mysql://192.168.0.12:3306/?serverTimezone=GMT%2B8
   
 ---
 # 生产环境配置
 spring:
   profiles: prod
   datasource:
-    url: jdbc:mysql://192.168.0.13:3306/
+    url: jdbc:mysql://192.168.0.13:3306/?serverTimezone=GMT%2B8

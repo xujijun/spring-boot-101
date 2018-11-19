@@ -1,5 +1,8 @@
 # my-spring-boot
 
+##### links：
+- [web-test: hi](http://localhost:8082/web/hi)
+
 ## Functionality List
 - Web configuration and static page support 
 - log4j2 configuration
