@@ -17,7 +17,9 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.Matchers.*;
@@ -69,7 +71,12 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		logger.info("person no 2 after update is: {}", objectMapper.writeValueAsString(person2));
 		assertThat(person2.getFirstName(), equalTo("八八"));
 
-	}
+        List<Integer> ids = new ArrayList<>();
+        ids.add(1);
+        ids.add(2);
+        List<Person> people = personDAO.selectUnionPerson(ids);
+        logger.info("union person: {}", objectMapper.writeValueAsString(people));
+    }
 
 	@Autowired
 	MongoTemplate mongoTemplate;

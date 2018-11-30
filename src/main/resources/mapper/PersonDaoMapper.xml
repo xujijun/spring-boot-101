@@ -19,4 +19,11 @@
 			first_name=#{firstName}, last_name=#{lastName}, birth_date=#{birthDate}, sex=#{sex}
 		WHERE phone_no=#{phoneNo}
 	</update>
+
+	<select id="selectUnionPerson" resultType="com.xjj.entity.Person">
+        <foreach collection="ids" item="item" separator=" UNION ">
+        SELECT id, first_name AS firstName, last_name AS lastName, birth_date AS birthDate, sex, phone_no AS phoneNo
+		FROM test.t_person WHERE id=#{item}
+        </foreach>
+	</select>
 </mapper>

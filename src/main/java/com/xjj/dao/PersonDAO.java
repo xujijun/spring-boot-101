@@ -1,10 +1,12 @@
 package com.xjj.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-
 import com.xjj.entity.Person;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Mapper
 @Repository
@@ -19,4 +21,6 @@ public interface PersonDAO {
 	public int updatePersonById(Person person);
 
 	public int updatePersonByPhoneNo(Person person);
+
+	List<Person> selectUnionPerson(@Param("ids") List<Integer> ids);
 }
