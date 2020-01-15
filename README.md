@@ -1,7 +1,6 @@
 # spring-boot-101
 
-##### links：
-- [web-test: hi](http://localhost:8082/web/hi)
+Handy code examples/demos of spring-boot.
 
 ## Functionality List
 - Web configuration and static page support 
