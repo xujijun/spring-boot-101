@@ -1,6 +1,6 @@
 # spring-boot-101
 
-Handy code examples/demos of spring-boot.
+A handy code guidance of spring-boot.
 
 ## Functionality List
 - Web configuration and static page support 
@@ -11,7 +11,7 @@ Handy code examples/demos of spring-boot.
 - Caffeine Cache configuration
 - RESTful API
 - Different configuration profiles for different environments
-- Retrieve properties from application.yml
+- Retrieve properties from application.yml (refer to: read-properties)
 - Velocity template (deprecated)
 - FreeMarker template
 - Mail

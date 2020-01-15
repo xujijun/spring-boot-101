@@ -3,7 +3,6 @@ package com.xjj;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoIterable;
-import com.xjj.config.MyProps;
 import com.xjj.dao.PersonDAO;
 import com.xjj.entity.Person;
 import com.xjj.service.PersonService;
@@ -28,9 +27,7 @@ import static org.junit.Assert.assertThat;
 public class MySpringBootApplicationTests extends BasicUtClass{
 	@Autowired
 	private PersonDAO personDAO;
-	@Autowired
-	private MyProps myProps; 
-	
+
 	@Test
 	public void common() throws JsonProcessingException{
 		//JSONObject o = new JSONObject();
@@ -40,16 +37,7 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		String s = objectMapper.writeValueAsString(m);
 		System.out.println(s);
 	}
-	
-	@Test
-	public void propsTest() throws JsonProcessingException {
-		System.out.println("simpleProp: " + myProps.getSimpleProp());
-		System.out.println("arrayProps: " + objectMapper.writeValueAsString(myProps.getArrayProps()));
-		System.out.println("listProp1: " + objectMapper.writeValueAsString(myProps.getListProp1()));
-		System.out.println("listProp2: " + objectMapper.writeValueAsString(myProps.getListProp2()));
-		System.out.println("mapProps: " + objectMapper.writeValueAsString(myProps.getMapProps()));
-	}
-	
+
 	@Test 
 	public void logTest(){
 		//MainMapLookup.setMainArguments("projectName", "test-project-name");
