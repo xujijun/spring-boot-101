@@ -18,7 +18,7 @@ Welcome To My WebSocket.<br/><br/>
 </body>
 
 <script type="text/javascript">
-	var websocket = null;
+	let websocket = null;
 
 	var wsVue = new Vue({
 		el: '#ws',
@@ -34,7 +34,7 @@ Welcome To My WebSocket.<br/><br/>
 	function initWs() {
 		//check if your browser supports WebSocket
 		if ('WebSocket' in window) {
-			websocket = new WebSocket("ws://localhost:8082/my-websocket");
+			websocket = new WebSocket("ws://localhost:8083/my-websocket");
 		}
 		else {
 			alert('Sorry, websocket not supported by your browser.')
