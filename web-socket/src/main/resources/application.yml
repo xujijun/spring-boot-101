@@ -1,6 +1,6 @@
-spring:
-  profiles:
-    active: dev
+#spring:
+#  profiles:
+#    active: dev
 
 server:
   port: 8083

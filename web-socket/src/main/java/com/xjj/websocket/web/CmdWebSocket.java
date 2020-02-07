@@ -1,4 +1,4 @@
-package com.xjj.web.websocket;
+package com.xjj.websocket.web;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
