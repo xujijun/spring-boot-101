@@ -12,13 +12,14 @@ spring:
 #    caffeine:
 #      spec: maximumSize=500,expireAfterWrite=5s
       
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123456
-    hikari:
-      maxLifetime: 1765000 #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上
-      maximumPoolSize: 15 #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
+#  datasource:
+##    driver-class-name: com.mysql.cj.jdbc.Driver
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: 123456
+#    hikari:
+#      maxLifetime: 1765000 #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上
+#      maximumPoolSize: 15 #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
 
   mail:
     host: smtp.exmail.qq.com
@@ -43,12 +44,12 @@ management:
 #  health:
 #    mail:
 #      enabled: false
-info:
-  app:
-    name: "@project.name@" #从pom.xml中获取
-    description: "@project.description@"
-    version: "@project.version@"
-    spring-boot-version: "@project.parent.version@"
+#info:
+#  app:
+#    name: "@project.name@" #从pom.xml中获取
+#    description: "@project.description@"
+#    version: "@project.version@"
+#    spring-boot-version: "@project.parent.version@"
       
 ---
 # 开发环境配置
@@ -63,8 +64,8 @@ spring:
         - 192.168.0.9:6390
         - 192.168.0.9:6391
         - 192.168.0.9:6392
-  datasource:
-    url: jdbc:mysql://localhost:3306/?serverTimezone=GMT%2B8
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/?serverTimezone=GMT%2B8
   data:
     mongodb:
       uri: mongodb://192.168.0.9,192.168.0.18/test?replicaSet=devRs
