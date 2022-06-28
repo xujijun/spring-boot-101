@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.2.RELEASE</version>
+		<version>2.6.6</version>
 	</parent>
 
 	<properties>
@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,7 +40,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
-		<!-- <dependency>  
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-velocity</artifactId>
 		</dependency> -->
@@ -65,14 +65,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- 支持 @ConfigurationProperties 注解 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 	<!-- log related -->
 		<dependency> <!-- exclude掉spring-boot的默认log配置 -->
 			<groupId>org.springframework.boot</groupId>
@@ -92,7 +92,7 @@
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-yaml</artifactId>
 		</dependency>
-	<!-- end of log related -->	
+	<!-- end of log related -->
 
 	<!-- Begin of DB related -->
 <!--        <dependency>
@@ -106,7 +106,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>-->
 	<!-- End of DB related -->
-	
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -129,10 +129,10 @@
 			<version>3.17</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<finalName>my-spring-boot</finalName> <!-- 指定package生成的文件名为my-spring-boot.jar -->
-		
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -140,6 +140,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 
 </project>
