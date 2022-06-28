@@ -2,8 +2,6 @@ package com.xjj;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.core.lookup.MainMapLookup;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
@@ -14,8 +12,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class MySpringBootApplication implements HealthIndicator{
 	//private static Logger logger = LoggerFactory.getLogger(MySpringBootApplication.class);
-	private static ObjectMapper objectMapper = new ObjectMapper();
-	
+	private static final ObjectMapper objectMapper = new ObjectMapper();
+
 	public static void main(String[] args) throws Exception {
 		//logger.info("args: {}", args);
 		System.out.println(objectMapper.writeValueAsString(args));

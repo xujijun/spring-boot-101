@@ -13,19 +13,19 @@ import java.util.Map;
 public class MyProps {
 	private String simpleProp;
 	private String[] arrayProps;
-	private List<Map<String, String>> listProp1 = new ArrayList<>(); //接收prop1里面的属性值
-	private List<String> listProp2 = new ArrayList<>(); //接收prop2里面的属性值
+	private final List<Map<String, String>> listProp1 = new ArrayList<>(); //接收prop1里面的属性值
+	private final List<String> listProp2 = new ArrayList<>(); //接收prop2里面的属性值
 	private Map<String, String> mapProps = new HashMap<>(); //接收prop1里面的属性值
-	
+
 	public String getSimpleProp() {
 		return simpleProp;
 	}
-	
+
 	//String类型的一定需要setter来接收属性值；maps, collections, 和 arrays 不需要
 	public void setSimpleProp(String simpleProp) {
 		this.simpleProp = simpleProp;
 	}
-	
+
 	public List<Map<String, String>> getListProp1() {
 		return listProp1;
 	}
